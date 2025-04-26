@@ -17,6 +17,9 @@ def main():
 
     client_socket = socket(AF_INET, SOCK_STREAM)
     client_socket.connect((server_ip, PORT))
+    username = input("Enter your username: ")
+    client_socket.send(username.encode())
+
 
     Thread(target=receive, args=(client_socket,), daemon=True).start()
 
